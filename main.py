@@ -1,13 +1,11 @@
-import turtle
-
-from snowflake import Snowflake
-from spirale import Spirale
+from classes.snowflake import Snowflake
+from classes.spirale import Spirale
+from classes.trinity import Trinity
+from lib.turtle import Turtle
 
 if __name__ == '__main__':
-    bg = turtle.Screen()
-    bg.bgcolor("black")
-    c = turtle.Turtle()
-    c.color("white")
+    bg, c = Turtle().get_config()
 
-    Snowflake(bg, c).draw()
+    # Snowflake(bg, c).draw()
     # Spirale(bg, c).draw()
+    Trinity(bg, c).draw()

@@ -4,14 +4,14 @@ class Spirale:
         self.c = c
         self.bg = bg
 
-    def square(self, c):
+    def square(self):
         for i in range(4):
-            c.forward(self.unit)
-            c.left(90)
+            self.c.forward(self.unit)
+            self.c.left(90)
 
     def draw(self):
         for i in range(100):
-            self.square(self.c)
+            self.square()
             self.c.left(15)
             self.unit += i / 10
 
