@@ -1,54 +1,51 @@
-import turtle
+class Snowflake:
+    def __init__(self, bg, c):
+        self.unit = 5
+        self.c = c
+        self.bg = bg
 
-unit = 5
+    def pic(self):
+        self.c.forward(self.unit)
+        self.c.left(45)
+        self.c.forward(self.unit)
+        self.c.right(90)
+        self.c.forward(self.unit)
+        self.c.left(45)
+        self.c.forward(self.unit)
 
-def pic(c):
-    c.forward(unit)
-    c.left(45)
-    c.forward(unit)
-    c.right(90)
-    c.forward(unit)
-    c.left(45)
-    c.forward(unit)
+    def star(self):
+        self.c.left(60)
+        self.c.forward(self.unit)
 
-def star(c):
-    c.left(60)
-    c.forward(unit)
+        for i in range(3):
+            self.c.left(60)
+            self.c.forward(self.unit)
+            self.c.right(120)
+            self.c.forward(self.unit)
 
-    for i in range(3):
-        c.left(60)
-        c.forward(unit)
-        c.right(120)
-        c.forward(unit)
+        self.c.left(60)
+        self.c.forward(self.unit)
+        self.c.left(60)
 
-    c.left(60)
-    c.forward(unit)
-    c.left(60)
+    def line(self):
+        self.pic()
+        self.star()
+        self.pic()
 
-def line(c):
-    pic(c)
-    star(c)
-    pic(c)
+    def side(self):
+        self.line()
+        self.c.left(60)
+        self.line()
+        self.c.right(120)
+        self.line()
+        self.c.left(60)
+        self.line()
 
-def side(c):
-    line(c)
-    c.left(60)
-    line(c)
-    c.right(120)
-    line(c)
-    c.left(60)
-    line(c)
+    def draw(self):
+        for i in range(6):
+            self.side()
+            self.c.right(120)
+            self.side()
+            self.c.left(60)
 
-def snowflake():
-    bg = turtle.Screen()
-    bg.bgcolor("black")
-    c = turtle.Turtle()
-    c.color("white")
-
-    for i in range(6):
-        side(c)
-        c.right(120)
-        side(c)
-        c.left(60)
-
-    bg.exitonclick()
+        self.bg.exitonclick()
